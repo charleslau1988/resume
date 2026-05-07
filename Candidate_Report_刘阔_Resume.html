@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刘阔 - 数据解决方案经理 简历</title>
+<style>
+  :root {
+    --primary: #1a3c6e;
+    --primary-light: #2e5a9e;
+    --accent: #2e86de;
+    --accent-light: #54a0ff;
+    --bg: #f4f6f9;
+    --card-bg: #ffffff;
+    --text: #2c3e50;
+    --text-light: #5f6b7a;
+    --border: #e8ecf1;
+    --tag-bg: #eef2f7;
+    --tag-text: #1a3c6e;
+    --shadow: 0 2px 12px rgba(26, 60, 110, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 40px 20px;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    border-radius: 16px 16px 0 0;
+    padding: 48px 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .hero h1 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .title {
+    font-size: 18px;
+    opacity: 0.92;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+  }
+  .hero .quick-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .quick-info span { display: flex; align-items: center; gap: 6px; }
+
+  .hero-inner { display: flex; align-items: center; gap: 36px; }
+  .hero-text { flex: 1; }
+  .hero-photo { flex-shrink: 0; }
+  .hero-photo img {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    display: block;
+  }
+
+  /* Card */
+  .card {
+    background: var(--card-bg);
+    border-radius: 0;
+    box-shadow: var(--shadow);
+    padding: 36px 48px;
+  }
+  .card:last-of-type { border-radius: 0 0 16px 16px; }
+
+  /* Section */
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    padding: 36px 48px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid var(--accent);
+  }
+  .section-header .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 1px;
+  }
+
+  /* Highlights */
+  .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 18px;
+    background: var(--bg);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .highlight-item .num {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Info table */
+  .info-table { width: 100%; border-collapse: collapse; }
+  .info-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .info-table td:first-child {
+    width: 100px;
+    font-weight: 600;
+    color: var(--text-light);
+  }
+  .info-table tr:last-child td { border-bottom: none; }
+
+  /* Timeline */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 28px;
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item .dot {
+    position: absolute;
+    left: 10px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-item .period {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .timeline-item .role {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .timeline-item .company {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  .timeline-item .sub-info {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  .timeline-item ul { list-style: none; padding: 0; }
+  .timeline-item ul li {
+    font-size: 14px;
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 4px;
+  }
+  .timeline-item ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    opacity: 0.6;
+  }
+
+  /* Projects */
+  .project-item {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .project-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .project-item .period { font-size: 13px; color: var(--accent); font-weight: 600; display: block; margin-bottom: 2px; }
+  .project-item h3 { font-size: 17px; font-weight: 700; color: var(--primary); }
+  .project-item .meta { font-size: 14px; color: var(--text-light); margin-bottom: 6px; }
+  .project-item .bg-text { font-size: 14px; color: var(--text-light); margin-bottom: 6px; font-style: italic; }
+  .project-item ul { list-style: none; padding: 0; }
+  .project-item ul li {
+    font-size: 14px;
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 4px;
+  }
+  .project-item ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    opacity: 0.6;
+  }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .skill-group h3 {
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* Self eval */
+  .self-eval {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .self-eval p { margin-bottom: 4px; }
+  .self-eval p:last-child { margin-bottom: 0; }
+
+  /* Certs */
+  .certs-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .certs-list .cert-item {
+    padding: 6px 18px;
+    background: linear-gradient(135deg, #eef2f7, #e4eaf2);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary);
+  }
+
+  /* External links */
+  .external-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .external-links a {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--tag-bg);
+    color: var(--accent);
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .external-links a:hover { background: var(--accent); color: #fff; }
+
+  /* Career path chip */
+  .career-path {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.8;
+    padding: 16px 20px;
+    background: var(--bg);
+    border-radius: 10px;
+  }
+  .career-path .arrow { color: var(--accent); margin: 0 4px; }
+
+  /* Footer */
+  .footer { text-align: center; font-size: 13px; color: var(--text-light); padding: 16px 0 0; opacity: 0.7; }
+
+  @media (max-width: 700px) {
+    body { padding: 16px 12px; }
+    .hero { padding: 32px 24px; }
+    .hero-inner { flex-direction: column; text-align: center; gap: 20px; }
+    .hero h1 { font-size: 30px; }
+    .hero .quick-info { justify-content: center; }
+    .hero .quick-info { gap: 12px 20px; }
+    .card, .section { padding: 24px 20px; }
+    .highlights { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { padding: 0; background: #fff; }
+    .hero { border-radius: 0; }
+    .section { box-shadow: none; border: 1px solid #eee; break-inside: avoid; }
+    .card { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>刘阔</h1>
+        <div class="title">数据解决方案经理 &amp; Product Owner/PM</div>
+        <div class="quick-info">
+          <span>&#9679; 男</span>
+          <span>&#9679; 英语 · 日语</span>
+          <span>&#9679; 13年埃森哲全职履历</span>
+          <span>&#9679; 管理团队 4-10 人</span>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="photo.jpg" alt="刘阔">
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Info + Highlights -->
+  <div class="card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+    <div>
+      <table class="info-table">
+        <tr><td>姓名</td><td>刘阔</td></tr>
+        <tr><td>性别</td><td>男</td></tr>
+        <tr><td>语言</td><td>英语、日语</td></tr>
+        <tr><td>国籍</td><td>中国</td></tr>
+        <tr><td>学历</td><td>本科</td></tr>
+        <tr><td>院校</td><td>大连外国语大学 (2006-2010)</td></tr>
+        <tr><td>专业</td><td>计算机科学与技术（英日双语强化）</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="highlights">
+        <div class="highlight-item"><span class="num">01</span> 13年埃森哲全职履历，从初级工程师逐级晋升至数据解决方案经理 &amp; Product Owner/PM</div>
+        <div class="highlight-item"><span class="num">02</span> 深耕数据治理、数据仓库、BI分析、敏捷项目管理领域</div>
+        <div class="highlight-item"><span class="num">03</span> 擅长GCP技术栈与企业级数据体系搭建，累计管理团队规模4-10人</div>
+        <div class="highlight-item"><span class="num">04</span> 年均支撑20+数据项目，持有MIT联合认证、GCP、SAFe、ACP等权威资质</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Career Overview -->
+  <div class="section">
+    <div class="section-header"><span class="dot"></span><h2>工作履历</h2></div>
+    <div class="career-path">
+      2010-08 至 2024-01 &nbsp;|&nbsp; Accenture<br>
+      <span class="arrow">→</span> 数据解决方案经理 &amp; POPM
+      <span class="arrow">→</span> 架构副经理
+      <span class="arrow">→</span> 技术Leader &amp; 敏捷开发教练
+      <span class="arrow">→</span> BI高级开发工程师
+      <span class="arrow">→</span> 软件工程师
+      <span class="arrow">→</span> 初级软件工程师
+    </div>
+  </div>
+
+  <!-- Detailed Work History -->
+  <div class="section">
+    <div class="section-header"><span class="dot"></span><h2>详细工作经历</h2></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <span class="period">2021-12 至 2024-01</span>
+        <div class="role">数据解决方案经理 &amp; POPM（Product Owner/PM）</div>
+        <div class="company">Accenture</div>
+        <div class="sub-info">下属：2位副经理，协助各项目PM</div>
+        <ul>
+          <li>从零构建企业级数据治理框架，覆盖数据标准、质量管理、资产目录、PII合规四大支柱</li>
+          <li>端到端负责数据解决方案交付：基于GCP提供从需求、架构到落地的全流程数据服务</li>
+          <li>制定统一数据管理标准（注入/处理/消费规范），年均支撑20+数据需求项目</li>
+          <li>主导跨团队协作，对接产品经理、业务架构师和开发团队，保障方案可行、交付合规</li>
+          <li>负责各项目成本估算与资源规划，有效控制预算</li>
+          <li><strong>技术栈</strong>：BigQuery / Cloud Storage / Composer / Cloud Function / Dataflow / Pub/Sub / Vertex AI / Kafka Connect / Power BI / Qlik</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <span class="period">2018-12 至 2021-11</span>
+        <div class="role">架构副经理</div>
+        <div class="company">Accenture</div>
+        <div class="sub-info">下属：10人</div>
+        <ul>
+          <li>负责内部数据分析项目，制定端到端交付计划，保障SDLC按期落地</li>
+          <li>基于GCP分析门户完成数据建模、报表开发及分支融合策略制定</li>
+          <li>协调5+业务系统，制定批量/实时数据注入方案，建立DQ指标监控+异常告警闭环</li>
+          <li>带领团队完成细粒度权限管理的可视化报表，服务内部决策</li>
+          <li>落地Scrum敏捷方法论，推动团队效率提升</li>
+          <li><strong>认证</strong>：埃森哲技术架构师 / 埃森哲数据架构师</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <span class="period">2015-10 至 2018-11</span>
+        <div class="role">技术Leader &amp; 敏捷开发教练</div>
+        <div class="company">Accenture</div>
+        <div class="sub-info">下属：5-7人</div>
+        <ul>
+          <li>基于Hadoop/Hive从零搭建HR数据仓库，主导Supply &amp; Demand分析模块建设</li>
+          <li>完成财务数据分析（季度/年度利润、销售趋势），辅助管理层战略决策</li>
+          <li>使用QlikView/QlikSense/Tableau完成多主题分析报表开发</li>
+          <li>推动敏捷实践落地，主导团队敏捷转型，提升交付效率</li>
+          <li><strong>认证</strong>：敏捷教练（ACP）</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <span class="period">2013-08 至 2015-09</span>
+        <div class="role">BI高级软件开发工程师</div>
+        <div class="company">Accenture</div>
+        <div class="sub-info">下属：4人</div>
+        <ul>
+          <li>负责HR Supply &amp; Demand数据仓库日常运维，监控200个ETL Job，保障数据SLA</li>
+          <li>主导数据库升级及增量需求全流程交付（设计/开发/测试/部署）</li>
+          <li>每日向印度管理层同步进展，推动跨地区协作</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <span class="period">2012-05 至 2013-07</span>
+        <div class="role">软件工程师</div>
+        <div class="company">Accenture</div>
+        <ul>
+          <li>开发维护埃森哲企业公民网站（ASP.NET/HTML/JavaScript）</li>
+          <li>完成Accenture Brand网站集成测试与产品测试</li>
+          <li>维护中国交付中心门户网站及交付管理系统</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <span class="dot"></span>
+        <span class="period">2010-08 至 2012-04</span>
+        <div class="role">初级软件工程师</div>
+        <div class="company">Accenture</div>
+        <ul>
+          <li>维护中国交付中心门户网站及交付管理系统</li>
+          <li>开发质量管理报表自动化工具</li>
+          <li><strong>技术栈</strong>：SharePoint / ASP.NET / SQL Server / VBA</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Core Projects -->
+  <div class="section">
+    <div class="section-header"><span class="dot"></span><h2>核心项目经历</h2></div>
+
+    <div class="project-item">
+      <span class="period">2022 至 2024-01</span>
+      <h3>企业级数据治理框架搭建</h3>
+      <div class="meta">角色：数据解决方案经理</div>
+      <div class="bg-text">背景：埃森哲内部数据资产膨胀，跨团队数据查找成本高、质量不可控、合规风险上升，亟需统一治理体系</div>
+      <ul>
+        <li>设计企业级数据治理运营模型，制定数据标准/命名规范/质量SLA及RACI矩阵，覆盖50+核心数据集</li>
+        <li>基于Cloud Function+BigQuery搭建DQ规则引擎，实现关键字段完整性/一致性/时效性自动校验+异常修复闭环</li>
+        <li>完成全量数据资产盘点编目，定义Business Glossary，实现数据资产可发现、可理解、可追溯</li>
+        <li>建立敏感数据识别分级机制，注入层实现PII字段自动脱敏，满足GDPR及内部合规要求</li>
+        <li>数据目录及审批全流程迁入Collibra管理</li>
+        <li>制定统一数据注入/处理/消费规范，完成GCP全路径技术选型，年均支撑20+数据项目合规交付</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <span class="period">2018-11 至 2021-11</span>
+      <h3>ERM（DMS-SSIS/Hive）</h3>
+      <div class="meta">角色：技术副经理-架构师</div>
+      <div class="bg-text">背景：需要为leadership提供一个完整的看板，包含MMS, MMB, Performance, Supply &amp; demand, Sales等多业务领域的MoM，QoQ，YoY等关键指标</div>
+      <ul>
+        <li>将未入湖的数据注入数据湖并做处理，关联数据湖内已存在的相关领域的数据</li>
+        <li>实现批量数据自动化接入</li>
+        <li>设计增量加载策略，优化Hive查询性能，保障大规模数据处理时效性，以及报表及时展示最新数据</li>
+        <li>确认PO的想法并指导团队开发QlikView/QlikSense多主题报表</li>
+        <li>推动团队敏捷转型，提升交付效率</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <span class="period">2015-09 至 2018-11</span>
+      <h3>HR数据仓库建设（Hadoop/Hive）</h3>
+      <div class="meta">角色：技术Leader</div>
+      <div class="bg-text">背景：埃森哲全球HR数据分散，缺乏统一数仓支撑决策，需从零搭建Hadoop生态HR数仓</div>
+      <ul>
+        <li>采用Kimball维度建模，完成员工/组织/招聘/绩效等核心主题域模型设计</li>
+        <li>打通HRIS/Workday/LMS等上游数据源，实现批量数据自动化接入</li>
+        <li>设计增量加载策略，优化Hive查询性能，保障大规模数据处理时效性</li>
+        <li>带领团队开发QlikView/QlikSense/Tableau多主题报表，支撑HR部门自助分析</li>
+        <li>推动团队敏捷转型，提升交付效率</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <span class="period">2013-07 至 2018-11</span>
+      <h3>HR Supply &amp; Demand 数据分析与决策支持</h3>
+      <div class="meta">角色：技术Leader → BI高级开发工程师</div>
+      <div class="bg-text">背景：埃森哲作为全球咨询公司，HR供需平衡直接影响项目交付能力，需系统化分析体系支撑决策</div>
+      <ul>
+        <li>带领4人团队运维HR数仓，监控200个ETL Job，保障数据SLA</li>
+        <li>开发HR Supply &amp; Demand分析模块，覆盖员工全生命周期、保留率、供需预测及绩效分析</li>
+        <li>为HR管理层提供多维报表与可视化看板，支撑编制规划、招聘策略及绩效优化</li>
+        <li>每日向印度管理层同步进展，推动跨地区协作</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <div class="section-header"><span class="dot"></span><h2>专业技能</h2></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>云平台</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">Cloud Storage</span>
+          <span class="skill-tag">Composer</span>
+          <span class="skill-tag">Cloud Function</span>
+          <span class="skill-tag">Dataflow</span>
+          <span class="skill-tag">Pub/Sub</span>
+          <span class="skill-tag">Vertex AI</span>
+          <span class="skill-tag">SSIS</span>
+          <span class="skill-tag">Kafka Connect</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>数据库</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">Cloud Storage</span>
+          <span class="skill-tag">SQL Server</span>
+          <span class="skill-tag">Hive</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>BI 工具</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">QlikSense</span>
+          <span class="skill-tag">QlikView</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">SSRS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>数据能力</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">数据治理</span>
+          <span class="skill-tag">血缘追踪</span>
+          <span class="skill-tag">质量管理</span>
+          <span class="skill-tag">资产目录</span>
+          <span class="skill-tag">成本治理</span>
+          <span class="skill-tag">PII合规</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">ETL/ELT设计</span>
+          <span class="skill-tag">数仓建模</span>
+          <span class="skill-tag">实时/批量数据管道</span>
+        </div>
+      </div>
+      <div class="skill-group" style="grid-column: 1 / -1;">
+        <h3>管理能力</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SAFe 6 PO/PM</span>
+          <span class="skill-tag">技术团队领导</span>
+          <span class="skill-tag">跨地区协作交付</span>
+          <span class="skill-tag">敏捷教练</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <h3 style="font-size: 14px; color: var(--text-light); font-weight: 600; margin-bottom: 8px;">知识沉淀</h3>
+      <div class="external-links">
+        <a href="https://charleslau1988.github.io/data-governance-mindmap/" target="_blank">数据治理全景框架</a>
+        <a href="https://charleslau1988.github.io/semiconductor-data-governance.html" target="_blank">半导体制造业数据治理</a>
+        <a href="https://charleslau1988.github.io/data-migration-mindmap/" target="_blank">数据迁移指南</a>
+        <a href="https://charleslau1988.github.io/data-architecture-mindmap/" target="_blank">数据架构 DW/DM 实战经验</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self Evaluation -->
+  <div class="section">
+    <div class="section-header"><span class="dot"></span><h2>自我评价</h2></div>
+    <div class="self-eval">
+      <p>12年企业级数据领域深耕，兼具技术深度与管理广度。</p>
+      <p>完整经历从数据开发 → BI负责人 → 数据架构师 → 解决方案经理的全链路成长。</p>
+      <p>既能独立交付复杂数据项目，也能带领团队完成从需求到上线的全流程，擅长用数据支撑业务决策。</p>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div class="section">
+    <div class="section-header"><span class="dot"></span><h2>资质认证</h2></div>
+    <div class="certs-list">
+      <span class="cert-item">MIT x Accenture 数据架构师认证</span>
+      <span class="cert-item">MIT x Accenture 技术架构师认证</span>
+      <span class="cert-item">SAFe 6 PO/PM</span>
+      <span class="cert-item">敏捷教练（ACP）</span>
+      <span class="cert-item">Google Cloud Platform 认证</span>
+    </div>
+  </div>
+
+  <div class="footer">简历更新于 2026-05</div>
+
+</div>
+</body>
+</html>
